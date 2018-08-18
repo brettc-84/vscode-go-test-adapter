@@ -28,8 +28,6 @@ export class GoTestAdapter implements TestAdapter, IDisposable {
   }
 
   async load(): Promise<TestSuiteInfo> {
-    console.log('Load start');
-
     const rootSuite: TestSuiteInfo = {
       type: 'suite',
       id: 'root',
@@ -43,25 +41,20 @@ export class GoTestAdapter implements TestAdapter, IDisposable {
       
       resolve();
     });
-    console.log('Load finish');
     return rootSuite;
   }
 
   async run(tests: TestSuiteInfo | TestInfo): Promise<void> {
-    console.log('Run start');
     await new Promise(resolve => setTimeout(resolve, 5000));
-    console.log('Run finish');
   }
 
   debug(tests: TestSuiteInfo | TestInfo): Promise<void> {
     throw new Error("Debug Method not implemented.");
   }
   cancel(): void {
-    console.log('Cancel start');
     if (this.runningTestProcess) {
       this.runningTestProcess.kill();
     }
-    console.log('Cancel finish');
   }
 
 
