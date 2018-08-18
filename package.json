@@ -1,0 +1,38 @@
+{
+    "name": "vscode-go-test-adapter",
+    "displayName": "Go Test Explorer",
+    "description": "Test Explorer adapter for Golang",
+    "version": "0.0.1",
+    "publisher": "brettc",
+    "engines": {
+        "vscode": "^1.26.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "onView:test-explorer"
+      ],
+    "main": "./out/extension",
+    "contributes": {
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./",
+        "postinstall": "node ./node_modules/vscode/bin/install",
+        "test": "npm run compile && node ./node_modules/vscode/bin/test"
+    },
+    "devDependencies": {
+        "@types/lodash": "^4.14.116",
+        "@types/mocha": "^2.2.42",
+        "@types/node": "^7.0.43",
+        "typescript": "^2.6.1",
+        "vscode": "^1.1.6"
+    },
+    "dependencies": {
+        "lodash": "^4.17.10",
+        "vscode-test-adapter-api": "^0.4.0",
+        "vscode-test-adapter-util": "^0.4.2"
+    }
+}
